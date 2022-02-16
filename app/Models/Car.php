@@ -16,7 +16,14 @@ class Car extends Model
 
     //2-11-22 Create a new property, make it fillable, define the array
     //from the CarsController
-    protected $fillable = ['name', 'founded', 'description']; 
+    protected $fillable = ['name', 'founded', 'description'];
+    //2-14-22 Hide attributes that get passed in a JSON object
+   // protected $hidden = ['updated_at'];
+   //2-15-22 Create our methods to return the car models from the cars table
+   public function carModel() 
+   {
+        return $this->hasMany(CarModel::class);
+   }
 
     
 }

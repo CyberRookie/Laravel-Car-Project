@@ -1,6 +1,9 @@
 {{-- 02/9/22 7 minutes into video --}}
 @extends('layouts.app')
 
+<!--2-14-22 Add a for each to return each record as a car into an array
+
+-->
 @section('content')
     <div class="m-auto w-4/5 py-24">
         <div class="text-center">
@@ -18,7 +21,8 @@
         <div class="w-5/6 py-10">
         @foreach ($cars as $car)
             <div class="m-auto text-center">
-        <!-- 2/11/22 Adding the create model for the edit function in the CarsController -->
+        <!-- 2/11/22 Adding the create model for the edit function in the CarsController 
+        2/14/22 Delete the Laravel code-4 places because we are going to return a string in json-->
                 <div class="float-right">
                     <a href="cars/{{ $car->id }}/edit" class="text-center border-b-2 pb-2 border-dotted italic
                         text-green-500">Edit &rarr;</a>
@@ -34,11 +38,14 @@
             <span class="uppercase text-blue-500 font-bold text-xs italic">
                 Founded: {{ $car->founded }}
             </span>
-            <h2 class="text-gray-700 text-5xl">
-                        {{ $car->name }}
+            <h2 class="text-gray-700 text-5xl hover:text-slate-500">
+                <!-- 2/15/22 Add Laravel code for model -->
+                <a href="/cars/{{ $car->id }}">
+                Name: {{ $car->name }}
+                </a>
             </h2>
             <p class="text-center text-lg text-gray-700 py-6">
-                        {{ $car->description }}                       
+                Description: {{ $car->description }}                    
             </p>
         
             <hr class="mt-4 mb-8">

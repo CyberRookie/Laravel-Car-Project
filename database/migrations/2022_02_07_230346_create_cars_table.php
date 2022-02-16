@@ -22,6 +22,17 @@ class CreateCarsTable extends Migration
             $table->longText('description');
             $table->timestamps();
         });
+//2-14-22 Create a new table car models that uses a foreign key to reference the cars table by id on the table cars
+        Schema::create('car_models', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('car_id');
+            $table->string('model_name');
+            $table->timestamps();
+            $table->foreign('car_id')
+                        ->references('id')
+                        ->on('cars')
+                        ->onDelete('cascade');
+        });
     }
 
     /**
