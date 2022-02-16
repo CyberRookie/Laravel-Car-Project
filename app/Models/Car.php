@@ -19,11 +19,15 @@ class Car extends Model
     protected $fillable = ['name', 'founded', 'description'];
     //2-14-22 Hide attributes that get passed in a JSON object
    // protected $hidden = ['updated_at'];
-   //2-15-22 Create our methods to return the car models from the cars table
+   //2-15-22 Create our methods to return the many-to-many car models from the cars table
    public function carModel() 
    {
         return $this->hasMany(CarModel::class);
    }
 
-    
+   //2-16-22 Adding the one-to-one relationship to the model
+    public function headquarter()
+    {
+        return $this->hasOne(Headquarter::class);
+    }
 }

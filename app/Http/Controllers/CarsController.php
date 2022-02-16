@@ -98,7 +98,10 @@ class CarsController extends Controller
         $car = Car::find($id);
         //Add for testing
         //dd($car);
-        //12-55-22 Return a view
+        //12-16-22 add the headquarters one-to-one relationship view
+       // $hq = $car->headquarter;
+      //  dd($hq);
+        //12-15-22 Return a view
         return view('cars.show')->with('car', $car);
        
     }
