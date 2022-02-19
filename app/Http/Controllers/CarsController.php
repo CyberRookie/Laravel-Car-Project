@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //2-9-22 Adding the car model for database manipulation with Eloquent
 use App\Models\Car;
-use Facade\FlareClient\View;
+//2-17-22 Adding the headquarters dependency
+use App\Models\Headquarter;
+//use Facade\FlareClient\View;
 
 class CarsController extends Controller
 {
@@ -97,10 +99,13 @@ class CarsController extends Controller
         //2-15-22 Eloquent Video 23-One To Many
         $car = Car::find($id);
         //Add for testing
-        //dd($car);
+       // dd($car->engines);
         //12-16-22 add the headquarters one-to-one relationship view
        // $hq = $car->headquarter;
-      //  dd($hq);
+       // var_dump($hq);
+      //12-17-22 Create an instance of the Headquarter to find by id
+       // $hq = Headquarter::find($id);
+       //var_dump($hq);
         //12-15-22 Return a view
         return view('cars.show')->with('car', $car);
        

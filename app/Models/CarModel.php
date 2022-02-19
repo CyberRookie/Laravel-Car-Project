@@ -11,6 +11,7 @@ class CarModel extends Model
     //2-15-22 8:15 minutes in Add our associations to the Car model and interact with the db table
     protected $table = 'car_models';
     protected $primaryKey = 'id';
+    protected $fillable = ['model_name', 'model_descr'];
     //Add the name we want it to be associated with, car model belongs to a car
     public function car()
     {
